@@ -23,7 +23,7 @@ export function SimulationPanel({ result }: SimulationPanelProps) {
       </div>
 
       {/* Enhanced Resource Usage */}
-      {result.enhancedDebugInfo && (
+      {result.enhancedDebugInfo?.resourceUsage && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
             <div className="flex items-center gap-2 mb-3">
@@ -93,7 +93,7 @@ export function SimulationPanel({ result }: SimulationPanelProps) {
       )}
 
       {/* Basic Resource Usage (fallback) */}
-      {!result.enhancedDebugInfo && (result.resourceUsage.cpuUsage > 0 || result.resourceUsage.memoryUsage > 0) && (
+      {!result.enhancedDebugInfo?.resourceUsage && (result.resourceUsage.cpuUsage > 0 || result.resourceUsage.memoryUsage > 0) && (
         <div className="grid grid-cols-2 gap-4">
           <div className="p-4 bg-gray-50 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
